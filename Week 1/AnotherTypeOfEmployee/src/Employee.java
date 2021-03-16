@@ -24,7 +24,7 @@ public class Employee extends StaffMember {
         result += "\nSocial Security Number: " + socialSecurityNumber;
         return result;
     }
-
+    
     // -----------------------------------------------------------------
     // Returns the pay rate for this employee.
     // -----------------------------------------------------------------

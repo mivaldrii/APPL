@@ -1,5 +1,5 @@
 public class Commission extends Hourly {
-    private double totalSale;
+    private double totalSales;
     private double commissionRate;
 
     public Commission(String eName, String eAddress, String ePhone, String socSecNumber, double rate, double commissionRate) {
@@ -7,17 +7,17 @@ public class Commission extends Hourly {
         this.commissionRate = commissionRate;
     }
 
-    public void addSale(double moreSale) {
-        this.totalSale += moreSale;
+    public void addSales(double totalSales) {
+        this.totalSales += totalSales;
     }
     
     public double pay() {
-        double x = super.pay() + this.totalSale + this.commissionRate;
-        this.totalSale = 0;
+        double x = super.pay() + this.totalSales + this.commissionRate;
+        this.totalSales = 0;
         return x;
     }
 
     public String toString() {
-        return super.toString() + "\nTotal Sale: " + this.totalSale + "\n";
+        return super.toString() + "\nTotal Sale: " + this.totalSales + "\n";
     }
 }

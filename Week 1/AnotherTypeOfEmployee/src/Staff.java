@@ -17,14 +17,14 @@ public class Staff {
         staffList[3] = new Hourly("Diane", "678 Fifth Ave.", "555-0690", "958-47-3625", 10.55);
         staffList[4] = new Volunteer("Norm", "987 Suds Blvd.", "555-8374");
         staffList[5] = new Volunteer("Cliff", "321 Duds Lane", "555-7282");
-        staffList[6] = new Commission("Marcell", "123 Gotham", "555-6969", "123-45-6789", 6.25, 0.2);
+        staffList[6] = new Commission("Marcell", "123 Gotham", "555-6969", "512-37-5813", 6.25, 0.2);
         staffList[7] = new Commission("Ivaldri", "456 Jakardah", "555-1111", "345-34-2342", 9.75, 0.15);
         ((Executive) staffList[0]).awardBonus(500.00);
         ((Hourly) staffList[3]).addHours(40);
         ((Commission) staffList[6]).addHours(35);
-        ((Commission) staffList[6]).addSale(400);
+        ((Commission) staffList[6]).addSales(400);
         ((Commission) staffList[7]).addHours(40);
-        ((Commission) staffList[7]).addSale(950);
+        ((Commission) staffList[7]).addSales(950);
         
     }
 
