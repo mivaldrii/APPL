@@ -36,9 +36,21 @@ public class Salesperson implements Comparable {
  // (last, then first) breaking a tie. 
  //-------------------------------------------------- 
  public int compareTo(Object other) {
-	 int result = 0; 
-	 return result; 
-	 } 
+     int result = 0;
+     
+     if(this.totalSales == ((Salesperson)other).totalSales) {
+         result = (this.firstName).compareTo(((Salesperson)other).firstName);
+        
+         if(result == 0) {
+             result = (this.lastName).compareTo(((Salesperson)other).lastName);
+             }
+         }else if(this.totalSales > ((Salesperson)other).totalSales){
+         result = 1;
+         }else{
+         result = -1;
+         }
+     return result;
+ }
  
  //------------------------- 
  // First name accessor. 
