@@ -108,11 +108,19 @@ public class CirclePanel extends JPanel {
 		} 
 	
 	private class ColorListener implements ActionListener { 
+		private Color color;
 		
-		public ColorListener() {
+		public ColorListener(Color color) {
+			this.color = color;
 	}
-		public void actionPerformed() {
-			
+		public void actionPerformed(ActionEvent e) {
+			if(this.color == null) {
+				c = JColorChooser.showDialog(choose, "Choose your color!", color);
+				
+			} else {
+				color = this.color;
+			}
+			repaint();
 		}
 	}
 }
