@@ -44,7 +44,7 @@ public class SpeedControlPanel extends JPanel {
 	    
 	    sliderLabel = new JLabel("Timer Delay");
 	    sliderLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
-	   
+	    
 	    sliderPanel = new JPanel();
         sliderPanel.add(sliderLabel);
         sliderPanel.add(slider);
