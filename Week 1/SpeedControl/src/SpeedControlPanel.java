@@ -18,17 +18,33 @@ public class SpeedControlPanel extends JPanel {
 	private Circle bouncingBall; // the object that moves 
 	private Timer timer; 
 	private int moveX, moveY; // increment to move each time 
+	
+	private JSlider slider;
+	private JPanel sliderPanel;
+	
 	// --------------------------------------------- 
 	// Sets up the panel, including the timer 
 	// for the animation 
 	// --------------------------------------------- 
-
+	
 	public SpeedControlPanel () { 
+		slider = new JSlider(JSlider.HORIZONTAL, 0, 200, 30);
+	    SlideListener listener = new SlideListener();
+	    
+	    slider.setMajorTickSpacing(40);
+	    slider.setMinorTickSpacing(10);
+	    
+	    slider.setPaintTicks(true);
+	    slider.setPaintLabels(true);
+	    slider.setAlignmentX(Component.LEFT_ALIGNMENT);
+	    
+	    slider.addChangeListener(listener);
+	    
 		timer = new Timer(30, new ReboundListener()); 
- 
 		this.setLayout (new BorderLayout()); 
 		bouncingBall = new Circle(BALL_SIZE); 
 		moveX = moveY = 5; 
+		
 		// Set up a slider object here 
 		setPreferredSize (new Dimension (WIDTH, HEIGHT)); 
 		setBackground(Color.black); 
