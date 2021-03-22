@@ -26,7 +26,7 @@ public class CountLetters {
 				counts[word.charAt(i)-'A']++;
 			} 
 			catch(ArrayIndexOutOfBoundsException e) {
-				
+					System.out.print("Not a letter\n");
 			}
 		}
 		//print frequencies  
