@@ -33,7 +33,7 @@ public class CirclePanel extends JPanel {
 		// Need a border layout to get the buttons on the bottom
 		this.setLayout(new BorderLayout());
 		
-		// Create buttons to move the circleS
+		// Create buttons to move the circle
 		left = new JButton("Left");
 		right = new JButton("Right");
 		up = new JButton("Up");
@@ -45,17 +45,17 @@ public class CirclePanel extends JPanel {
 		up.addActionListener(new MoveListener(0,-20));
 		down.addActionListener(new MoveListener(0,20));
 		
+		 //Poin1: Add mnemonic
+        left.setMnemonic(KeyEvent.VK_L);
+        right.setMnemonic(KeyEvent.VK_R);
+        up.setMnemonic(KeyEvent.VK_U);
+        down.setMnemonic(KeyEvent.VK_D);     
+       
 		//Poin2: Tooltips
         left.setToolTipText("Move circle to the left for 20 pixels");
         right.setToolTipText("Move circle to the right for 20 pixels");
         up.setToolTipText("Move circle upwards for 20 pixels up");
         down.setToolTipText("Move circle downwards for 20 pixels");
-		
-        //Poin1: Add mnemonic
-        left.setMnemonic(KeyEvent.VK_L);
-        right.setMnemonic(KeyEvent.VK_R);
-        up.setMnemonic(KeyEvent.VK_U);
-        down.setMnemonic(KeyEvent.VK_D);     
        
 		// Need a panel to put the buttons on or they'll be on
 		// top of each other.
@@ -99,6 +99,7 @@ public class CirclePanel extends JPanel {
 		// Change x and y coordinates and repaint.
 		//---------------------------------------------------------------
 		public void actionPerformed(ActionEvent e) {
+			//poin3
 			int lw = width - CIRCLE_SIZE;
 			int lh = height - CIRCLE_SIZE - 70;
 			 
