@@ -12,18 +12,18 @@ public class CirclePanel extends JPanel {
 	private int x,y;
 	private Color c;
 	
-	//poin 1
+	//poin1
 	private JButton left; 
 	private JButton right;
 	private JButton up;
 	private JButton down;
 	
-	private int width, height;
+	private int width;
+	private int height;
 	//---------------------------------------------------------------
 	// Set up circle and buttons to move it.
 	//---------------------------------------------------------------
 	public CirclePanel(int width, int height) {
-		
 		// Set coordinates so circle starts in middle
 		x = (width/2)-(CIRCLE_SIZE/2);
 		y = (height/2)-(CIRCLE_SIZE/2);
@@ -32,7 +32,7 @@ public class CirclePanel extends JPanel {
 		// Need a border layout to get the buttons on the bottom
 		this.setLayout(new BorderLayout());
 		
-		// Create buttons to move the circle
+		// Create buttons to move the circleS
 		JButton left = new JButton("Left");
 		JButton right = new JButton("Right");
 		JButton up = new JButton("Up");
@@ -49,6 +49,12 @@ public class CirclePanel extends JPanel {
         right.setMnemonic(KeyEvent.VK_R);
         up.setMnemonic(KeyEvent.VK_U);
         down.setMnemonic(KeyEvent.VK_D);
+        
+        //Poin2: Tooltips
+        left.setToolTipText("Move circle to the left for 20 pixels");
+        right.setToolTipText("Move circle to the right for 20 pixels");
+        up.setToolTipText("Move circle upwards for 20 pixels up");
+        down.setToolTipText("Move circle downwards for 20 pixels");
 
 		// Need a panel to put the buttons on or they'll be on
 		// top of each other.
@@ -90,9 +96,24 @@ public class CirclePanel extends JPanel {
 		// Change x and y coordinates and repaint.
 		//---------------------------------------------------------------
 		public void actionPerformed(ActionEvent e) {
-			x += dx;
-			y += dy;
-			repaint();
+			int lw = width - CIRCLE_SIZE;
+			int lh = height - CIRCLE_SIZE - 70;
+			 
+            x += dx;
+            y += dy;
+
+            x = Math.max(0, x);
+            x = Math.min(lw, x);
+            y = Math.max(0, y);
+            y = Math.min(lh, y);
+
+            left.setEnabled(x > 0);
+            right.setEnabled(x < lw);
+            up.setEnabled(y > 0);
+            down.setEnabled(y < lh);
+
+            repaint();
+
 		}
 	}
 }
