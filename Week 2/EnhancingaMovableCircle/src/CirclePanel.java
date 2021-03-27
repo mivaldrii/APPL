@@ -7,6 +7,7 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+
 public class CirclePanel extends JPanel {
 	private final int CIRCLE_SIZE = 50;
 	private int x,y;
@@ -25,18 +26,18 @@ public class CirclePanel extends JPanel {
 	//---------------------------------------------------------------
 	public CirclePanel(int width, int height) {
 		// Set coordinates so circle starts in middle
-		x = (width/2)-(CIRCLE_SIZE/2);
-		y = (height/2)-(CIRCLE_SIZE/2);
+		x = (width / 2) - (CIRCLE_SIZE / 2);
+		y = (height / 2) - (CIRCLE_SIZE / 2);
 		c = Color.green;
 		
 		// Need a border layout to get the buttons on the bottom
 		this.setLayout(new BorderLayout());
 		
 		// Create buttons to move the circleS
-		JButton left = new JButton("Left");
-		JButton right = new JButton("Right");
-		JButton up = new JButton("Up");
-		JButton down = new JButton("Down");
+		left = new JButton("Left");
+		right = new JButton("Right");
+		up = new JButton("Up");
+		down = new JButton("Down");
 
 		// Add listeners to the buttons
 		left.addActionListener(new MoveListener(-20,0));
@@ -44,18 +45,18 @@ public class CirclePanel extends JPanel {
 		up.addActionListener(new MoveListener(0,-20));
 		down.addActionListener(new MoveListener(0,20));
 		
-		//Poin1: Add mnemonic
-        left.setMnemonic(KeyEvent.VK_L);
-        right.setMnemonic(KeyEvent.VK_R);
-        up.setMnemonic(KeyEvent.VK_U);
-        down.setMnemonic(KeyEvent.VK_D);
-        
-        //Poin2: Tooltips
+		//Poin2: Tooltips
         left.setToolTipText("Move circle to the left for 20 pixels");
         right.setToolTipText("Move circle to the right for 20 pixels");
         up.setToolTipText("Move circle upwards for 20 pixels up");
         down.setToolTipText("Move circle downwards for 20 pixels");
-
+		
+        //Poin1: Add mnemonic
+        left.setMnemonic(KeyEvent.VK_L);
+        right.setMnemonic(KeyEvent.VK_R);
+        up.setMnemonic(KeyEvent.VK_U);
+        down.setMnemonic(KeyEvent.VK_D);     
+       
 		// Need a panel to put the buttons on or they'll be on
 		// top of each other.
 		JPanel buttonPanel = new JPanel();
@@ -66,6 +67,8 @@ public class CirclePanel extends JPanel {
 		
 		// Add the button panel to the bottom of the main panel
 		this.add(buttonPanel, "South");
+		
+		
 	}
 	
 	//---------------------------------------------------------------
